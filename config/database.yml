@@ -1,0 +1,14 @@
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: deux_dev
+  pool: 5
+  host: localhost
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: deux_test
+  pool: 5
+  host: localhost

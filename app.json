@@ -1,0 +1,101 @@
+// Include the app name and description below. Uncomment or add requirements as needed. Delete any unused configurations, even if commented.
+{
+  "name": ,
+  "description": ,
+  "scripts": {
+      "postdeploy": "bundle exec rake db:migrate && rake db:seed",
+      // Script for clearing image buckets in review apps
+      // "pr-predestroy": "bundle exec rake review_app:clear_bucket"
+    },
+  "env": {
+    // UNCOMMENT IF INCLUDING ADMIN USERS (e.g., for testing or support emails)
+    // "ADMIN_EMAIL": {
+    //   "required": true
+    // },
+    // "ADMIN_PASSWORD": {
+    //   "required": true
+    // },
+    "APPLICATION_ROOT_URL": {
+      "required": true
+    },
+    // **START AWS CONFIGURATIONS - UNCOMMENT IF USING AWS** //
+    // "AWS_ACCESS_KEY" : {
+    //   "required": true
+    // },
+    // "AWS_S3_BUCKET" : {
+    //   "required": true
+    // },
+    // "AWS_REGION" : {
+    //   "required": true
+    // },
+    // "AWS_SECRET_ACCESS_KEY" : {
+    //   "required": true
+    // },
+    // **END AWS CONFIGURATIONS** //
+
+    // **START CLOUDINARY CONFIGURATIONS - UNCOMMENT IF USING CLOUDINARY** //
+    // "CLOUDINARY_CLOUD_BUCKET": {
+    //   "required": true
+    // },
+    // "CLOUDINARY_CLOUD_NAME": {
+    //   "required": true
+    // },
+    // "CLOUDINARY_KEY": {
+    //   "required": true
+    // },
+    // "CLOUDINARY_SECRET_KEY": {
+    //   "required": true
+    // },
+    // **END CLOUDINARY CONFIGURATIONS** //
+    "DEVELOPER_USERNAME" : {
+      "required": true
+    },
+    "DEVELOPER_PASSWORD" : {
+      "required": true
+    },
+    "HEROKU_APP_NAME": {
+      "required": true
+    },
+    "LANG": {
+      "required": true
+    },
+    "RACK_ENV": {
+      "required": true
+    },
+    "RAILS_ENV": {
+      "required": true
+    },
+    "RAILS_LOG_TO_STDOUT": {
+      "required": true
+    },
+    "RAILS_SERVE_STATIC_FILES": {
+      "required": true
+    },
+    "SECRET_KEY_BASE": {
+      "required": true
+    },
+    // UNCOMMENT IF USING SENDGRID FOR EMAILS //
+    // "SENDGRID_USERNAME":{
+    //   "required":true
+    // },
+    // "SENDGRID_PASSWORD":{
+    //   "required":true
+    // },
+    "SENTRY_DSN" : {
+      "required": true
+    }
+  },
+  "formation": {
+  },
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "heroku/ruby"
+    }
+  ]
+}
