@@ -16,7 +16,6 @@ gem 'puma', '~> 3.7'
 gem 'rack-cors'
 gem 'rails', '5.1.4'
 gem 'rails_util', github: 'launchpadlab/rails_util'
-# gem 'sentry-raven'
 gem 'token_master'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 

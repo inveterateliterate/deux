@@ -1,4 +1,4 @@
-# TODO: DEUX
+# DEUX
 
 This app will be used to do another round of coach Lauren's training program.
 
