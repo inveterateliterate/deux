@@ -5,7 +5,7 @@ require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 require 'database_cleaner'
 require 'faker'
@@ -50,7 +50,7 @@ RSpec.configure do |config|
 
   config.around(:each) do |example|
     # DatabaseCleaner.cleaning { example.run }
-  end 
+  end
 
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and

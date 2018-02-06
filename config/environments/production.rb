@@ -1,11 +1,11 @@
 Rails.application.configure do
-  # config.middleware.insert_before 0, 'Rack::Cors' do
-  #   allow do
-  #     origins ENV['APPLICATION_ROOT_URL']
-  #     resource '/api/*', headers: :any, methods: :any
-  #   end
-  # end
-  
+  config.middleware.insert_before 0, 'Rack::Cors' do
+    allow do
+      origins ENV['APPLICATION_ROOT_URL']
+      resource '/api/*', headers: :any, methods: :any
+    end
+  end
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -75,7 +75,7 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
-  if ENV["RAILS_LOG_TO_STDOUT"].present?
+  if ENV['RAILS_LOG_TO_STDOUT'].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
