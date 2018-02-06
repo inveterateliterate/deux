@@ -1,0 +1,2 @@
+class SpeedTraining < ApplicationRecord
+end

@@ -1,17 +1,17 @@
 Rails.application.configure do
-  config.middleware.insert_before 0, 'Rack::Cors' do
+  config.middleware.insert_before 0, Rack::Cors do
     allow do
       origins '*'
       resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head]
     end
   end
-  
+
   config.after_initialize do
     Bullet.enable = true
     Bullet.alert = true
     Bullet.rails_logger = true
   end
-  
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on

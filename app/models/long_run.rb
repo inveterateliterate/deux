@@ -1,0 +1,2 @@
+class LongRun < ApplicationRecord
+end
