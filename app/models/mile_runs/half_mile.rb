@@ -1,0 +1,3 @@
+class HalfMile < MileRun
+
+end

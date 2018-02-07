@@ -18,7 +18,21 @@ Bundler.require(*Rails.groups)
 
 module Deux
   class Application < Rails::Application
-    
+
+    app_folders = %w().map { |f| "app/f" }
+    root_folders = %w(lib)
+
+    folders = (app_folders + root_folders).map { |f| "#{config.root}/#{f}/**/" }
+    config.autoload_paths += Dir["#{config.root}/app/models/**/", "#{config.root}/lib/**/"]
+    config.eager_load_paths += Dir["#{config.root}/app/models/**/", "#{config.root}/lib/**/"]
+    config.autoload_paths += Dir[*folders]
+
+    config.after_initialize do
+      Rails.application.routes.default_url_options[:host] = ENV['APPLICATION_ROOT_URL']
+    end
+
+    root_url = ENV['APPLICATION_ROOT_URL']
+
     config.generators do |g|
       g.test_framework :rspec,
         fixtures: true,
@@ -29,7 +43,7 @@ module Deux
         request_specs: false
       g.fixture_replacement :factory_bot, dir: "spec/factories"
     end
-    
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 

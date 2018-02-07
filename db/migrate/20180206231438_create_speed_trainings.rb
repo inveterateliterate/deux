@@ -5,6 +5,7 @@ class CreateSpeedTrainings < ActiveRecord::Migration[5.1]
       t.string :distance
       t.integer :rep_seconds_rest
       t.integer :round_seconds_rest
+      t.integer :round_order
 
       t.timestamps
     end

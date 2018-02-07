@@ -1,2 +1,0 @@
-class HalfMile < ApplicationRecord
-end
