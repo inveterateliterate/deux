@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20180207162421) do
     t.integer "num_times"
     t.string "distance"
     t.integer "rep_seconds_rest"
-    t.integer "round_seconds_rest"
+    t.integer "round_minutes_rest"
     t.integer "round_order"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

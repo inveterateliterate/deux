@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Suicide, type: :model do
-  subject { build(:speed_training) }
+  subject { build(:suicide) }
 
   it { is_expected.to be_valid }
 
