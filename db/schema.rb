@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180207162421) do
+ActiveRecord::Schema.define(version: 20180208150528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20180207162421) do
     t.bigint "runnable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "completed", default: false
     t.index ["day_id"], name: "index_day_running_exercises_on_day_id"
     t.index ["runnable_type", "runnable_id"], name: "index_day_running_exercises_on_runnable_type_and_runnable_id"
   end
