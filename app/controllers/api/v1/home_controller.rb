@@ -4,6 +4,6 @@ class HomeController < ApplicationController
   end
 
   def weeks
-    weeks = 12
+    12
   end
 end
