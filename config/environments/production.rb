@@ -1,5 +1,5 @@
 Rails.application.configure do
-  config.middleware.insert_before 0, 'Rack::Cors' do
+  config.middleware.insert_before 0, Rack::Cors do
     allow do
       origins ENV['APPLICATION_ROOT_URL']
       resource '/api/*', headers: :any, methods: :any
@@ -30,14 +30,12 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
-
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = 'http://assets.example.com'
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
-
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true

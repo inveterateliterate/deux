@@ -1,0 +1,52 @@
+module Seeds
+  class Seeder
+    class << self
+      include RunSeeder
+      include DayRunSeeder
+
+      NUM_WEEKS = 12
+
+      def seed
+        puts 'cleaning db...'
+        clean_db
+        puts 'creating schedule...'
+        create_days
+        puts 'creating running exercises...'
+        create_running_exercises
+        puts 'creating resistance exercises...'
+        # create_resistance_exercises
+        puts 'creating program...'
+        create_program
+      end
+
+      private
+
+      def clean_db
+        tables.each { |table| table.constantize.destroy_all }
+      end
+
+      def tables
+        %w(DayRunningExercise MileRun SpeedTraining Hundred LongRun Day)
+      end
+
+      def create_days
+        days = []
+        NUM_WEEKS.times do |n|
+          # Monday through Friday
+          (1..5).each do |day_ind|
+            days << {
+              day_index: day_ind,
+              week_num: n + 1
+            }
+          end
+        end
+        Day.create!(days)
+      end
+
+      def create_program
+        assign_running_exercises
+        # assign_resistance_exercises
+      end
+    end
+  end
+end
