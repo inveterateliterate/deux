@@ -19,7 +19,7 @@ Bundler.require(*Rails.groups)
 module Deux
   class Application < Rails::Application
 
-    app_folders = %w().map { |f| "app/f" }
+    app_folders = %w().map { |f| "app/#{f}" }
     root_folders = %w(lib)
 
     folders = (app_folders + root_folders).map { |f| "#{config.root}/#{f}/**/" }
