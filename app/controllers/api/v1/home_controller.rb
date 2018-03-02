@@ -1,5 +1,9 @@
-class HomeController < ApplicationController
+module Api
+  module V1
+    class HomeController < ApplicationController
 
-  def home
+      def home
+      end
+    end
   end
 end

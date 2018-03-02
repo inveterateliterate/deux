@@ -1,6 +1,10 @@
-class WeeksController < ApplicationController
+module Api
+  module V1
+    class WeeksController < ApplicationController
 
-  def index
-    @weeks = Week.all
+      def index
+        json_with Week.includes(:days).all
+      end
+    end
   end
 end
