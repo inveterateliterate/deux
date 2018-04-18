@@ -6,6 +6,5 @@ class DaySerializer < ActiveModel::Serializer
     object.day_name
   end
 
-  belongs_to :week
-  has_many :day_running_exercises
+  has_many :day_running_exercises, serializer: DayRunningExerciseSerializer
 end

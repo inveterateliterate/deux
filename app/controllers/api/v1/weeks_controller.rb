@@ -3,7 +3,7 @@ module Api
     class WeeksController < ApplicationController
 
       def index
-        json_with Week.includes(:days).all
+        json_with Week.all
       end
     end
   end

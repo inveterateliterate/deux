@@ -1,5 +1,6 @@
 class Week < ApplicationRecord
   has_many :days, dependent: :destroy
+  has_many :day_running_exercises, through: :days
 
   module Statuses
     NOT_STARTED = 'Not Started'
