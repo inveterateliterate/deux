@@ -2,13 +2,13 @@ class DayRunningExerciseSerializer < ActiveModel::Serializer
   # embed :ids
 
   attributes  :id,
-              :completed
+              :completed,
               :runnable
 
   belongs_to :day
-  # belongs_to :runnable, polymorphic: true
+  belongs_to :runnable, polymorphic: true
 
-  def runnable
-    object.runnable
-  end
+  # def runnable
+  #   object.runnable
+  # end
 end
