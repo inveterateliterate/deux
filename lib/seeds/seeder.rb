@@ -29,7 +29,7 @@ module Seeds
       end
 
       def tables
-        %w(DayRunningExercise MileRun SpeedTraining Hundred LongRun Day Week)
+        %w(DayResistanceExercise IntervalExercise CircuitExercise DayRunningExercise MileRun SpeedTraining Hundred LongRun Day Week)
       end
 
       def create_weeks

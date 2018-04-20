@@ -27,7 +27,7 @@ module DayResistanceSeeder
     exercises = LegsBackAb.where(order: orders)
     day = week.days.for_day(1).first
     exercises.each do |ex|
-      DayResistanceExercise.create!(day: day, runnable: ex)
+      DayResistanceExercise.create!(day: day, resistancable: ex)
     end
   end
 
@@ -35,17 +35,17 @@ module DayResistanceSeeder
     exercises = ArmsChestAb.where(order: orders)
     day = week.days.for_day(3).first
     exercises.each do |ex|
-      DayResistanceExercise.create!(day: day, runnable: ex)
+      DayResistanceExercise.create!(day: day, resistancable: ex)
     end
   end
 
   def assign_full_bodies(exercise, week)
     day = week.days.for_day(5).first
-    DayResistanceExercise.create!(day: day, runnable: exercise)
+    DayResistanceExercise.create!(day: day, resistancable: exercise)
   end
 
   def assign_intervals
-    exercise = Interval.first
-    Day.all.each { |day| DayResistanceExercise.create!(day: day, runnable: exercise) }
+    exercise = IntervalExercise.first
+    Day.all.each { |day| DayResistanceExercise.create!(day: day, resistancable: exercise) }
   end
 end
