@@ -1,0 +1,2 @@
+class FullBody < CircuitExercise
+end

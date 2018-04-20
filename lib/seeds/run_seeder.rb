@@ -120,13 +120,11 @@ module RunSeeder
   def create_full_miles
     full_miles = [
       {
-        type: MileRun::MileRunTypes::FULL_MILE,
         num_times: 2,
         time_per: 7.75,
         rest_between: 6
       },
       {
-        type: MileRun::MileRunTypes::FULL_MILE,
         num_times: 2,
         time_per: 7.5,
         rest_between: 6

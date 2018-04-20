@@ -10,10 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180301211218) do
+ActiveRecord::Schema.define(version: 20180420201542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
+
+  create_table "circuit_exercises", force: :cascade do |t|
+    t.hstore "exercises"
+    t.string "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "order"
+  end
+
+  create_table "day_resistance_exercises", force: :cascade do |t|
+    t.bigint "day_id"
+    t.string "resistancable_type"
+    t.bigint "resistancable_id"
+    t.boolean "completed", default: false
+    t.boolean "boolean", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["day_id"], name: "index_day_resistance_exercises_on_day_id"
+    t.index ["resistancable_type", "resistancable_id"], name: "resistance_index"
+  end
 
   create_table "day_running_exercises", force: :cascade do |t|
     t.bigint "day_id"
@@ -37,6 +58,12 @@ ActiveRecord::Schema.define(version: 20180301211218) do
 
   create_table "hundreds", force: :cascade do |t|
     t.integer "num_times"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "interval_exercises", force: :cascade do |t|
+    t.hstore "exercises"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -82,6 +109,7 @@ ActiveRecord::Schema.define(version: 20180301211218) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "day_resistance_exercises", "days"
   add_foreign_key "day_running_exercises", "days"
   add_foreign_key "days", "weeks"
 end

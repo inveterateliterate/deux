@@ -3,6 +3,8 @@ module Seeds
     class << self
       include RunSeeder
       include DayRunSeeder
+      include ResistanceSeeder
+      include DayResistanceSeeder
 
       NUM_WEEKS = 12
 
@@ -15,7 +17,7 @@ module Seeds
         puts 'creating running exercises...'
         create_running_exercises
         puts 'creating resistance exercises...'
-        # create_resistance_exercises
+        create_resistance_exercises
         puts 'creating program...'
         create_program
       end
@@ -50,7 +52,7 @@ module Seeds
 
       def create_program
         assign_running_exercises
-        # assign_resistance_exercises
+        assign_resistance_exercises
       end
     end
   end
