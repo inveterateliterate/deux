@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180208150528) do
+ActiveRecord::Schema.define(version: 20180301211218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,11 +28,11 @@ ActiveRecord::Schema.define(version: 20180208150528) do
 
   create_table "days", force: :cascade do |t|
     t.integer "day_index"
-    t.integer "week_num"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "week_id"
     t.index ["day_index"], name: "index_days_on_day_index"
-    t.index ["week_num"], name: "index_days_on_week_num"
+    t.index ["week_id"], name: "index_days_on_week_id"
   end
 
   create_table "hundreds", force: :cascade do |t|
@@ -75,5 +75,13 @@ ActiveRecord::Schema.define(version: 20180208150528) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "weeks", force: :cascade do |t|
+    t.integer "num"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "day_running_exercises", "days"
+  add_foreign_key "days", "weeks"
 end

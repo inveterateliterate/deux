@@ -10,6 +10,7 @@ module Seeds
         puts 'cleaning db...'
         clean_db
         puts 'creating schedule...'
+        create_weeks
         create_days
         puts 'creating running exercises...'
         create_running_exercises
@@ -26,17 +27,21 @@ module Seeds
       end
 
       def tables
-        %w(DayRunningExercise MileRun SpeedTraining Hundred LongRun Day)
+        %w(DayRunningExercise MileRun SpeedTraining Hundred LongRun Day Week)
+      end
+
+      def create_weeks
+        NUM_WEEKS.times { |n| Week.create!(num: n + 1, status: Week::Statuses::NOT_STARTED) }
       end
 
       def create_days
         days = []
-        NUM_WEEKS.times do |n|
+        Week.all.each do |week|
           # Monday through Friday
           (1..5).each do |day_ind|
             days << {
               day_index: day_ind,
-              week_num: n + 1
+              week: week
             }
           end
         end

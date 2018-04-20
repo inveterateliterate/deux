@@ -1,7 +1,8 @@
 class DaySerializer < ActiveModel::Serializer
   attributes  :id,
-              :day_index,
-              :week_num
+              :weekday
 
-  has_many :day_running_exercises
+  def weekday
+    object.day_name
+  end
 end

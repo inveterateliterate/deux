@@ -1,9 +1,7 @@
-class DayRunningExerciseSerializer < ActiveModel::DayRunningExerciseSerializer
-  embed :ids
-
+class DayRunningExerciseSerializer < ActiveModel::Serializer
   attributes  :id,
-              :completed
+              :completed,
+              :runnable
 
-  belongs_to :day
   belongs_to :runnable, polymorphic: true
 end
